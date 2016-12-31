@@ -15,6 +15,14 @@ export class PostService {
         return Promise.reject(error.message || error);
     }
 
+    getPost(id: number): Promise<IPost> {
+        return this._http
+                    .get(`${this._url}/${id}`)
+                    .toPromise()
+                    .then(response => response.json())
+                    .catch(this.handleError);
+    }
+
     getPosts(): Promise<IPost[]> {
         return this._http
             .get(this._url)
