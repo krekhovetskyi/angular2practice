@@ -1,0 +1,6 @@
+<app-header></app-header>
+<div class="blog-post" *ngIf="post">
+  <h2 class="blog-post__title">{{post.title | capitalize}}</h2>
+  <div class="blog-post__body">{{post.body}}</div>
+</div>
+<app-footer></app-footer>
