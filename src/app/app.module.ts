@@ -19,6 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 /* App Services */
+import { UsersService } from './services/users.service';
 import { PostsService } from './services/posts.service';
 import { CommentsService } from './services/comments.service';
 
@@ -44,6 +45,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         AppRoutingModule
     ],
     providers: [
+        UsersService,
         PostsService,
         CommentsService
     ],
