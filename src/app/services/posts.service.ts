@@ -3,10 +3,15 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { IPost } from './IPost';
+export interface IPost {
+    id: number;
+    title: string;
+    body: string;
+    userId: number;
+}
 
 @Injectable()
-export class PostService {
+export class PostsService {
     private _url: string = 'https://jsonplaceholder.typicode.com/posts';
 
     constructor(private _http: Http) { }

@@ -19,7 +19,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 /* App Services */
-import { PostService } from './services/post.service';
+import { PostsService } from './services/posts.service';
 import { CommentsService } from './services/comments.service';
 
 /* Custom Pipes */
@@ -44,7 +44,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         AppRoutingModule
     ],
     providers: [
-        PostService,
+        PostsService,
         CommentsService
     ],
     bootstrap: [AppComponent]

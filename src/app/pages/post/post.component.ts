@@ -1,10 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import 'rxjs/add/operator/switchMap';
-
-import { IPost } from './../../services/IPost';
-import { PostService } from './../../services/post.service';
+import { IPost, PostsService } from './../../services/posts.service';
 import { IComment, CommentsService } from './../../services/comments.service';
 
 @Component({
@@ -19,7 +16,7 @@ export class PostPageComponent implements OnInit, OnDestroy {
     postSub: any;
 
     constructor(private activatedRoute: ActivatedRoute,
-                private _postService: PostService,
+                private _postService: PostsService,
                 private _commentsService: CommentsService) { }
 
     ngOnInit(): void {
