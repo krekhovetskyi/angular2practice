@@ -3,6 +3,31 @@
 
     &__title {
         margin-bottom: .25rem;
-        font-size: 2.5rem;
+        font-size: 25px;
+    }
+}
+.comments {
+    $comments-border: 1px solid #ddd;
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        padding: 15px 0;
+        margin-bottom: -1px;
+        border: 0;
+        border-top: $comments-border;
+        border-bottom: $comments-border;
+    }
+
+    &__title {
+        font-size: 16px;
+    }
+
+    &__body {
+        font-size: 14px;
     }
 }

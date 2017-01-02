@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 /* App Services */
 import { PostService } from './services/post.service';
+import { CommentsService } from './services/comments.service';
 
 /* Custom Pipes */
 import { CapitalizePipe } from './pipes/capitalize.pipe';
@@ -43,7 +44,8 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         AppRoutingModule
     ],
     providers: [
-        PostService
+        PostService,
+        CommentsService
     ],
     bootstrap: [AppComponent]
 })
