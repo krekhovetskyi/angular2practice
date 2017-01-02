@@ -1,25 +1,23 @@
 <app-header></app-header>
 <div class="users">
-<h1>Users</h1>
-<table class="users__table table" *ngIf="users">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Company</th>
-      <th>Email</th>
-      <th>Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users" [routerLink]="['/users', user.id]">
-      <td scope="row">{{user.id}}</td>
-      <td>{{user.name}}</td>
-      <td>{{user.company.name}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.address.city}} <br />{{user.address.street}}<br/>{{user.address.suite}}</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+  <h3>Users</h3>
+  <table class="users__table table" *ngIf="users">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" [routerLink]="['/users', user.id]">
+        <td scope="row">{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.company.name}}</td>
+        <td>{{user.address.city}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 <app-footer></app-footer>

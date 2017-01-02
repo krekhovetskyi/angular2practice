@@ -38,7 +38,7 @@ export class UserPageComponent implements OnInit, OnDestroy {
                 this.isVisibleAddressTab = !this.isVisibleAddressTab;
                 break;
             default:
-                throw new Error('unexist type of tab');
+                throw new Error('not existing type of tab');
         }
     }
 
