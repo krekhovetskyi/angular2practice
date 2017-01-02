@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app.routing';
 import { MainPageComponent } from './pages/main/main.component';
 import { PostPageComponent } from './pages/post/post.component';
 import { AboutPageComponent } from './pages/about/about.component';
+import { UserPageComponent } from './pages/user/user.component';
 import { UsersPageComponent } from './pages/users/users.component';
 import { ContactPageComponent } from './pages/contact/contact.component';
 
@@ -37,6 +38,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         AboutPageComponent,
         ContactPageComponent,
         PostPageComponent,
+        UserPageComponent,
         UsersPageComponent,
         CapitalizePipe
     ],

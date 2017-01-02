@@ -1,0 +1,19 @@
+.user {
+    &__avatar {
+        text-align: center;
+    }
+    &__table-info {
+        margin: 15px 0;
+    }
+    &__tab {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    tr {
+        td {
+            border-top: 0;
+            padding: .40rem;
+        }
+    }
+}

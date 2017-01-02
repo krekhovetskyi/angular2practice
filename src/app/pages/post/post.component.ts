@@ -13,14 +13,14 @@ export class PostPageComponent implements OnInit, OnDestroy {
     postId: number;
     post: IPost;
     comments: IComment[];
-    postSub: any;
+    paramsSub: any;
 
     constructor(private activatedRoute: ActivatedRoute,
                 private _postService: PostsService,
                 private _commentsService: CommentsService) { }
 
     ngOnInit(): void {
-        this.postSub = this.activatedRoute
+        this.paramsSub = this.activatedRoute
             .params
             .subscribe((params: Params) => {
                 this.postId = +params['id'];
@@ -36,7 +36,7 @@ export class PostPageComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.postSub.unsubscribe();
+        this.paramsSub.unsubscribe();
     }
 
 }

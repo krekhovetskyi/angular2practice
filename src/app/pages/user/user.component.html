@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="user row" *ngIf="user">
+  <div class="col-md-4 user__avatar">
+    <img src="http://placehold.it/150/39e985" alt="user" class="rounded-circle"/>
+  </div>
+  <div class="col-md-8">
+    <h1>{{user.name}}</h1>
+    <strong class="text-muted">{{user.company.name}} ({{user.address.city}})</strong>
+    <table class="user__table-info table">
+      <tbody>
+        <tr>
+          <td class="text-muted">Name</td>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <td class="text-muted">Phone</td>
+          <td>{{user.phone}}</td>
+        </tr>
+        <tr>
+          <td class="text-muted">Email</td>
+          <td>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td class="text-muted">Website</td>
+          <td><a href="http://{{user.website}}">{{user.website}}</a></td>
+        </tr>
+        <tr>
+          <td (click)="toggleTab('company')" class="user__tab text-muted" colspan="2"><strong>Company <i class="fa" [ngClass]="isVisibleCompanyTab?'fa-minus-square':'fa-plus-square'" aria-hidden="true"></i></strong></td>
+        </tr>
+        <tr *ngIf="isVisibleCompanyTab">
+          <td colspan="2">
+          <table class="table-sm">
+            <tr>
+              <td class="text-muted">Name</td>
+              <td>{{user.company.name}}</td>
+            </tr>
+            <tr>
+              <td class="text-muted">Catch Phrase</td>
+              <td>{{user.company.catchPhrase}}</td>
+            </tr>
+            <tr>
+              <td class="text-muted">BS</td>
+              <td>{{user.company.bs}}</td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+        <tr>
+          <td (click)="toggleTab('address')" class="user__tab text-muted" colspan="2"><strong>Address <i class="fa" [ngClass]="isVisibleAddressTab?'fa-minus-square':'fa-plus-square'" aria-hidden="true"></i></strong></td>
+        </tr>
+        <tr *ngIf="isVisibleAddressTab">
+          <td colspan="2">
+            <table class="table-sm">
+              <tr>
+                <td class="text-muted">City</td>
+                <td>{{user.address.city}}</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Street</td>
+                <td>{{user.address.street}}</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Suite</td>
+                <td>{{user.address.suite}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>
