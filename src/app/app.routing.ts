@@ -6,12 +6,14 @@ import { MainPageComponent } from './pages/main/main.component';
 import { AboutPageComponent } from './pages/about/about.component';
 import { ContactPageComponent } from './pages/contact/contact.component';
 import { PostPageComponent } from './pages/post/post.component';
+import { UsersPageComponent } from './pages/users/users.component';
 
 const routes: Routes = [
     { path: '', component: MainPageComponent },
     { path: 'about', component: AboutPageComponent },
     { path: 'contact', component: ContactPageComponent },
-    { path: 'post/:id', component: PostPageComponent }
+    { path: 'post/:id', component: PostPageComponent },
+    { path: 'users', component: UsersPageComponent }
 ];
 
 @NgModule({

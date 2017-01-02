@@ -1,0 +1,10 @@
+.users {
+    &__table {
+        tr {
+            &:hover td {
+                background-color: #d9edf7;
+                cursor: pointer;
+            }
+        }
+    }
+}
