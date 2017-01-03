@@ -3,6 +3,8 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
+import { IPost } from './posts.service';
+
 interface IUserAddress {
     street: string;
     suite: string;
@@ -31,6 +33,19 @@ export interface IUser {
     company: IUserCompany;
 }
 
+export interface IAlbum {
+    id: number;
+    title: string;
+    userId: string;
+}
+
+export interface ITodo {
+    id: number;
+    title: string;
+    completed: boolean;
+    userId: number;
+}
+
 @Injectable()
 export class UsersService {
     private _url: string = 'https://jsonplaceholder.typicode.com/users';
@@ -54,6 +69,29 @@ export class UsersService {
                     .get(`${this._url}/${id}`)
                     .toPromise()
                     .then((user): IUser => user.json())
+                    .catch(this.handleError);
+    }
+
+    getUserAlbums(id: number, limit?: number): Promise<IAlbum[]> {
+        return this._http
+                    .get(`${this._url}/${id}/albums${limit ? `?_limit=${limit}` : ''}`)
+                    .toPromise()
+                    .then((albums): IAlbum[] => albums.json())
+                    .catch(this.handleError);
+    }
+
+    getUserTodos(id: number): Promise<ITodo[]> {
+        return this._http
+                    .get(`${this._url}/${id}/todos`)
+                    .toPromise()
+                    .then((todo): ITodo[] => todo.json());
+    }
+
+    getUserPosts(id: number): Promise<IPost[]> {
+        return this._http
+                    .get(`${this._url}/${id}/posts`)
+                    .toPromise()
+                    .then((posts): IPost[] => posts.json())
                     .catch(this.handleError);
     }
 

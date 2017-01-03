@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserAlbumsComponent } from './components/user-albums/user-albums.component';
 
 /* App Services */
 import { UsersService } from './services/users.service';
@@ -37,6 +38,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         MainPageComponent,
         AboutPageComponent,
         ContactPageComponent,
+        UserAlbumsComponent,
         PostPageComponent,
         UserPageComponent,
         UsersPageComponent,

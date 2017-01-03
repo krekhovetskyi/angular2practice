@@ -1,0 +1,10 @@
+.decimal-list {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+    &__item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+}
