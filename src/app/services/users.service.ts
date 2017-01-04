@@ -80,9 +80,9 @@ export class UsersService {
             .catch(this.handleError);
     }
 
-    getUserTodos(id: number): Promise<ITodo[]> {
+    getUserTodos(id: number, limit?: number): Promise<ITodo[]> {
         return this._http
-            .get(`${this._url}/${id}/todos`)
+            .get(`${this._url}/${id}/todos${limit ? `?_limit=${limit}` : ''}`)
             .toPromise()
             .then((todo): ITodo[] => todo.json());
     }

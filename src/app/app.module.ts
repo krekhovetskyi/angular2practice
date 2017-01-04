@@ -21,6 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserAlbumsComponent } from './components/user-albums/user-albums.component';
 import { UserPostsComponent } from './components/user-posts/user-posts.component';
+import { UserTodosComponent } from './components/user-todos/user-todos.component';
 
 /* App Services */
 import { UsersService } from './services/users.service';
@@ -41,6 +42,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         ContactPageComponent,
         UserAlbumsComponent,
         UserPostsComponent,
+        UserTodosComponent,
         PostPageComponent,
         UserPageComponent,
         UsersPageComponent,

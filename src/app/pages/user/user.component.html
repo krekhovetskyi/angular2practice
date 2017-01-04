@@ -1,87 +1,95 @@
 <app-header></app-header>
-<div class="user row" *ngIf="user">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink="/users">Users</a></li>
-    <li class="breadcrumb-item active">{{user.name}}</li>
-  </ol>
-  <div class="col-md-4 user__avatar">
-    <img src="https://placeholdit.imgix.net/~text?txtsize=14&bg=39e985&txt=150%C3%97150&w=150&h=150" alt="user" class="rounded-circle" />
+<div class="user" *ngIf="user">
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/users">Users</a></li>
+        <li class="breadcrumb-item active">{{user.name}}</li>
+      </ol>
+    </div>
   </div>
-  <div class="col-md-8">
-    <h2>{{user.name}}</h2>
-    <strong class="text-muted">{{user.company.name}} ({{user.address.city}})</strong>
-    <table class="user__table-info table">
-      <tbody>
-        <tr>
-          <td class="text-muted">Name</td>
-          <td>{{user.name}}</td>
-        </tr>
-        <tr>
-          <td class="text-muted">Phone</td>
-          <td>{{user.phone}}</td>
-        </tr>
-        <tr>
-          <td class="text-muted">Email</td>
-          <td>{{user.email}}</td>
-        </tr>
-        <tr>
-          <td class="text-muted">Website</td>
-          <td><a href="http://{{user.website}}">{{user.website}}</a></td>
-        </tr>
-        <tr>
-          <td (click)="toggleTab('company')" class="user__tab text-muted" colspan="2"><strong>Company <i class="fa" [ngClass]="isVisibleCompanyTab?'fa-minus-square':'fa-plus-square'" aria-hidden="true"></i></strong></td>
-        </tr>
-        <tr *ngIf="isVisibleCompanyTab">
-          <td colspan="2">
-            <table class="table-sm">
-              <tr>
-                <td class="text-muted">Name</td>
-                <td>{{user.company.name}}</td>
-              </tr>
-              <tr>
-                <td class="text-muted">Catch Phrase</td>
-                <td>{{user.company.catchPhrase}}</td>
-              </tr>
-              <tr>
-                <td class="text-muted">BS</td>
-                <td>{{user.company.bs}}</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <td (click)="toggleTab('address')" class="user__tab text-muted" colspan="2"><strong>Address <i class="fa" [ngClass]="isVisibleAddressTab?'fa-minus-square':'fa-plus-square'" aria-hidden="true"></i></strong></td>
-        </tr>
-        <tr *ngIf="isVisibleAddressTab">
-          <td colspan="2">
-            <table class="table-sm">
-              <tr>
-                <td class="text-muted">City</td>
-                <td>{{user.address.city}}</td>
-              </tr>
-              <tr>
-                <td class="text-muted">Street</td>
-                <td>{{user.address.street}}</td>
-              </tr>
-              <tr>
-                <td class="text-muted">Suite</td>
-                <td>{{user.address.suite}}</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="row">
+    <div class="col-md-4 user__avatar">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=14&bg=39e985&txt=150%C3%97150&w=150&h=150" alt="user" class="rounded-circle" />
+    </div>
+    <div class="col-md-8">
+      <h2>{{user.name}}</h2>
+      <strong class="text-muted">{{user.company.name}} ({{user.address.city}})</strong>
+      <table class="user__table-info table">
+        <tbody>
+          <tr>
+            <td class="text-muted">Name</td>
+            <td>{{user.name}}</td>
+          </tr>
+          <tr>
+            <td class="text-muted">Phone</td>
+            <td>{{user.phone}}</td>
+          </tr>
+          <tr>
+            <td class="text-muted">Email</td>
+            <td>{{user.email}}</td>
+          </tr>
+          <tr>
+            <td class="text-muted">Website</td>
+            <td><a href="http://{{user.website}}">{{user.website}}</a></td>
+          </tr>
+          <tr>
+            <td (click)="toggleTab('company')" class="user__tab text-muted" colspan="2"><strong>Company <i class="fa" [ngClass]="isVisibleCompanyTab?'fa-minus-square':'fa-plus-square'" aria-hidden="true"></i></strong></td>
+          </tr>
+          <tr *ngIf="isVisibleCompanyTab">
+            <td colspan="2">
+              <table class="table-sm">
+                <tr>
+                  <td class="text-muted">Name</td>
+                  <td>{{user.company.name}}</td>
+                </tr>
+                <tr>
+                  <td class="text-muted">Catch Phrase</td>
+                  <td>{{user.company.catchPhrase}}</td>
+                </tr>
+                <tr>
+                  <td class="text-muted">BS</td>
+                  <td>{{user.company.bs}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td (click)="toggleTab('address')" class="user__tab text-muted" colspan="2"><strong>Address <i class="fa" [ngClass]="isVisibleAddressTab?'fa-minus-square':'fa-plus-square'" aria-hidden="true"></i></strong></td>
+          </tr>
+          <tr *ngIf="isVisibleAddressTab">
+            <td colspan="2">
+              <table class="table-sm">
+                <tr>
+                  <td class="text-muted">City</td>
+                  <td>{{user.address.city}}</td>
+                </tr>
+                <tr>
+                  <td class="text-muted">Street</td>
+                  <td>{{user.address.street}}</td>
+                </tr>
+                <tr>
+                  <td class="text-muted">Suite</td>
+                  <td>{{user.address.suite}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row user__content">
+    <div class="col-md-4">
+      <app-user-albums [userId]="userId"></app-user-albums>
+    </div>
+    <div class="col-md-4">
+      <app-user-posts [userId]="userId"></app-user-posts>
+    </div>
+    <div class="col-md-4">
+      <app-user-todos [userId]="userId"></app-user-todos>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-4">
-    <app-user-albums [userId]="userId"></app-user-albums>
-  </div>
-  <div class="col-md-4">
-    <app-user-posts [userId]="userId"></app-user-posts>
-  </div>
-  <div class="col-md-4">
-  </div>
-</div>
+
 <app-footer></app-footer>

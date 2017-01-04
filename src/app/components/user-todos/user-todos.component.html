@@ -1,0 +1,10 @@
+<div class="row" *ngIf="todos">
+  <div class="col-md-12">
+    <h5>Todos</h5>
+    <ul class="decimal-list">
+      <li class="decimal-list__item" *ngFor="let todo of todos">
+        <input type="checkbox" [ngModel]="todo.completed" disabled /> <a [routerLink]="['/todos', todo.id]">{{todo.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
