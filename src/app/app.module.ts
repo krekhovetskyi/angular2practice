@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 /* App Routes */
 import { AppRoutingModule } from './app.routing';
@@ -55,7 +55,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
         FormsModule,
         HttpModule,
         AppRoutingModule,
-        NgbModule.forRoot()
+        NgbPaginationModule.forRoot()
     ],
     providers: [
         UsersService,
