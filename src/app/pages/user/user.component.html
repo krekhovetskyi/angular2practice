@@ -5,7 +5,7 @@
     <li class="breadcrumb-item active">{{user.name}}</li>
   </ol>
   <div class="col-md-4 user__avatar">
-    <img src="http://placehold.it/150/39e985" alt="user" class="rounded-circle"/>
+    <img src="https://placeholdit.imgix.net/~text?txtsize=14&bg=39e985&txt=150%C3%97150&w=150&h=150" alt="user" class="rounded-circle" />
   </div>
   <div class="col-md-8">
     <h2>{{user.name}}</h2>
@@ -33,20 +33,20 @@
         </tr>
         <tr *ngIf="isVisibleCompanyTab">
           <td colspan="2">
-          <table class="table-sm">
-            <tr>
-              <td class="text-muted">Name</td>
-              <td>{{user.company.name}}</td>
-            </tr>
-            <tr>
-              <td class="text-muted">Catch Phrase</td>
-              <td>{{user.company.catchPhrase}}</td>
-            </tr>
-            <tr>
-              <td class="text-muted">BS</td>
-              <td>{{user.company.bs}}</td>
-            </tr>
-          </table>
+            <table class="table-sm">
+              <tr>
+                <td class="text-muted">Name</td>
+                <td>{{user.company.name}}</td>
+              </tr>
+              <tr>
+                <td class="text-muted">Catch Phrase</td>
+                <td>{{user.company.catchPhrase}}</td>
+              </tr>
+              <tr>
+                <td class="text-muted">BS</td>
+                <td>{{user.company.bs}}</td>
+              </tr>
+            </table>
           </td>
         </tr>
         <tr>
@@ -79,10 +79,9 @@
     <app-user-albums [userId]="userId"></app-user-albums>
   </div>
   <div class="col-md-4">
-
+    <app-user-posts [userId]="userId"></app-user-posts>
   </div>
   <div class="col-md-4">
-
   </div>
 </div>
 <app-footer></app-footer>

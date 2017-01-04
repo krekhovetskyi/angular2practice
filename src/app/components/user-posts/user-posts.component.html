@@ -1,0 +1,10 @@
+<div class="row" *ngIf="posts">
+  <div class="col-md-12">
+    <h5>Posts</h5>
+    <ul class="decimal-list">
+      <li class="decimal-list__item" *ngFor="let post of posts">
+        <a [routerLink]="['/post', post.id]">{{post.title}}</a>
+      </li>
+    </ul>
+  </div>
+</div>

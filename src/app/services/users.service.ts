@@ -58,41 +58,41 @@ export class UsersService {
 
     getUsers(): Promise<IUser[]> {
         return this._http
-                    .get(this._url)
-                    .toPromise()
-                    .then((users): IUser[] => users.json())
-                    .catch(this.handleError);
+            .get(this._url)
+            .toPromise()
+            .then((users): IUser[] => users.json())
+            .catch(this.handleError);
     }
 
     getUser(id: number): Promise<IUser> {
         return this._http
-                    .get(`${this._url}/${id}`)
-                    .toPromise()
-                    .then((user): IUser => user.json())
-                    .catch(this.handleError);
+            .get(`${this._url}/${id}`)
+            .toPromise()
+            .then((user): IUser => user.json())
+            .catch(this.handleError);
     }
 
     getUserAlbums(id: number, limit?: number): Promise<IAlbum[]> {
         return this._http
-                    .get(`${this._url}/${id}/albums${limit ? `?_limit=${limit}` : ''}`)
-                    .toPromise()
-                    .then((albums): IAlbum[] => albums.json())
-                    .catch(this.handleError);
+            .get(`${this._url}/${id}/albums${limit ? `?_limit=${limit}` : ''}`)
+            .toPromise()
+            .then((albums): IAlbum[] => albums.json())
+            .catch(this.handleError);
     }
 
     getUserTodos(id: number): Promise<ITodo[]> {
         return this._http
-                    .get(`${this._url}/${id}/todos`)
-                    .toPromise()
-                    .then((todo): ITodo[] => todo.json());
+            .get(`${this._url}/${id}/todos`)
+            .toPromise()
+            .then((todo): ITodo[] => todo.json());
     }
 
-    getUserPosts(id: number): Promise<IPost[]> {
+    getUserPosts(id: number, limit?: number): Promise<IPost[]> {
         return this._http
-                    .get(`${this._url}/${id}/posts`)
-                    .toPromise()
-                    .then((posts): IPost[] => posts.json())
-                    .catch(this.handleError);
+            .get(`${this._url}/${id}/posts${limit ? `?_limit=${limit}` : ''}`)
+            .toPromise()
+            .then((posts): IPost[] => posts.json())
+            .catch(this.handleError);
     }
 
 }
