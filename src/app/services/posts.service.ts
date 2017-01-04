@@ -10,6 +10,11 @@ export interface IPost {
     userId: number;
 }
 
+interface IPostPaginationData {
+    data: IPost[];
+    totalCount: number;
+}
+
 @Injectable()
 export class PostsService {
     private _url: string = 'https://jsonplaceholder.typicode.com/posts';
@@ -22,17 +27,22 @@ export class PostsService {
 
     getPost(id: number): Promise<IPost> {
         return this._http
-                    .get(`${this._url}/${id}`)
-                    .toPromise()
-                    .then(response => response.json())
-                    .catch(this.handleError);
-    }
-
-    getPosts(): Promise<IPost[]> {
-        return this._http
-            .get(this._url)
+            .get(`${this._url}/${id}`)
             .toPromise()
             .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    getPosts(page?: number) {
+        return this._http
+            .get(`${this._url}${page ? `?_page=${page}` : ''}`)
+            .toPromise()
+            .then(response => {
+                return <IPostPaginationData>{
+                    data: response.json(),
+                    totalCount: +response.headers.get('x-total-count')
+                };
+            })
             .catch(this.handleError);
     }
 }

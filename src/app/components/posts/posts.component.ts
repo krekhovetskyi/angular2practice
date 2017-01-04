@@ -8,14 +8,27 @@ import { IPost, PostsService } from './../../services/posts.service';
     styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-    public posts: IPost[] = [];
+    posts: IPost[] = [];
+    page: number = 1;
+    totalCount: number;
 
     constructor(private _postsService: PostsService) { }
 
-    ngOnInit() {
+    private getPosts(page: number) {
         this._postsService
-            .getPosts()
-            .then(posts => this.posts = posts);
+            .getPosts(page)
+            .then(response => {
+                this.posts = response.data;
+                this.totalCount = response.totalCount;
+            });
+    }
+
+    ngOnInit() {
+        this.getPosts(this.page);
+    }
+
+    onPageChange(nd) {
+        this.getPosts(this.page);
     }
 
 }
