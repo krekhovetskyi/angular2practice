@@ -27,7 +27,7 @@ export interface IUser {
     name: string;
     username: string;
     email: string;
-    addres: IUserAddress;
+    address: IUserAddress;
     phone: string;
     website: string;
     company: IUserCompany;
@@ -52,7 +52,7 @@ export class UsersService {
 
     constructor(private _http: Http) { }
 
-    private handleError(error: any): Promise<any> {
+    private static handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
     }
 
@@ -61,7 +61,7 @@ export class UsersService {
             .get(this._url)
             .toPromise()
             .then((users): IUser[] => users.json())
-            .catch(this.handleError);
+            .catch(UsersService.handleError);
     }
 
     getUser(id: number): Promise<IUser> {
@@ -69,7 +69,7 @@ export class UsersService {
             .get(`${this._url}/${id}`)
             .toPromise()
             .then((user): IUser => user.json())
-            .catch(this.handleError);
+            .catch(UsersService.handleError);
     }
 
     getUserAlbums(id: number, limit?: number): Promise<IAlbum[]> {
@@ -77,14 +77,15 @@ export class UsersService {
             .get(`${this._url}/${id}/albums${limit ? `?_limit=${limit}` : ''}`)
             .toPromise()
             .then((albums): IAlbum[] => albums.json())
-            .catch(this.handleError);
+            .catch(UsersService.handleError);
     }
 
     getUserTodos(id: number, limit?: number): Promise<ITodo[]> {
         return this._http
             .get(`${this._url}/${id}/todos${limit ? `?_limit=${limit}` : ''}`)
             .toPromise()
-            .then((todo): ITodo[] => todo.json());
+            .then((todo): ITodo[] => todo.json())
+            .catch(UsersService.handleError);
     }
 
     getUserPosts(id: number, limit?: number): Promise<IPost[]> {
@@ -92,7 +93,7 @@ export class UsersService {
             .get(`${this._url}/${id}/posts${limit ? `?_limit=${limit}` : ''}`)
             .toPromise()
             .then((posts): IPost[] => posts.json())
-            .catch(this.handleError);
+            .catch(UsersService.handleError);
     }
 
 }

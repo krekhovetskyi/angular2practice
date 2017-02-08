@@ -1,10 +1,10 @@
-import { Angular2cliPage } from './app.po';
+import { Angular2practicePage } from './app.po';
 
-describe('angular2cli App', function() {
-  let page: Angular2cliPage;
+describe('angular2practice App', function() {
+  let page: Angular2practicePage;
 
   beforeEach(() => {
-    page = new Angular2cliPage();
+    page = new Angular2practicePage();
   });
 
   it('should display message saying app works', () => {
