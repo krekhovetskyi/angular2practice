@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { UsersService, ITodo } from './../../services/users.service';
+import { UsersService, ITodo } from '../../services/users.service';
 
 @Component({
     selector: 'app-user-todos',
@@ -12,10 +12,10 @@ export class UserTodosComponent implements OnInit {
     todos: ITodo[];
     limit: number = 5;
 
-    constructor(private _userService: UsersService) { }
+    constructor(private userService: UsersService) { }
 
     ngOnInit() {
-        this._userService
+        this.userService
             .getUserTodos(this.userId, this.limit)
             .then((todos): ITodo[] => this.todos = todos);
     }

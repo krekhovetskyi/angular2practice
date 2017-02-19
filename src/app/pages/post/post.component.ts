@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Observable } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 
 import { IPost, PostsService } from '../../services/posts.service';
 import { IComment, CommentsService } from '../../services/comments.service';
@@ -13,11 +13,11 @@ import { IComment, CommentsService } from '../../services/comments.service';
 export class PostPageComponent implements OnInit, OnDestroy {
     post: IPost;
     comments: IComment[];
-    paramsSub: any;
+    paramsSub: Subscription;
 
     constructor(private activatedRoute: ActivatedRoute,
-                private _postService: PostsService,
-                private _commentsService: CommentsService) {
+                private postService: PostsService,
+                private commentsService: CommentsService) {
     }
 
     ngOnInit(): void {
@@ -37,8 +37,8 @@ export class PostPageComponent implements OnInit, OnDestroy {
 
         Observable
             .forkJoin(
-                this._postService.getPost(postId),
-                this._commentsService.getComments(postId)
+                this.postService.getPost(postId),
+                this.commentsService.getComments(postId)
             )
             .subscribe((response) => {
                 this.post = <IPost>response[0];
