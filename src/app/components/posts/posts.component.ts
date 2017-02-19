@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IPost, PostsService } from './../../services/posts.service';
+import { IPost, PostsService } from '../../services/posts.service';
 
 @Component({
     selector: 'app-posts',
@@ -27,7 +27,7 @@ export class PostsComponent implements OnInit {
         this.getPosts(this.page);
     }
 
-    onPageChange(nd) {
+    onPageChange() {
         this.getPosts(this.page);
     }
 

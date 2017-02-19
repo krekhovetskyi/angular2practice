@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { IUser, UsersService } from './../../services/users.service';
+import { IUser, UsersService } from '../../services/users.service';
 
 @Component({
     selector: 'app-user',
@@ -16,7 +16,8 @@ export class UserPageComponent implements OnInit, OnDestroy {
     isVisibleAddressTab: boolean = false;
 
     constructor(private activatedRoute: ActivatedRoute,
-        private _userService: UsersService) { }
+                private _userService: UsersService) {
+    }
 
     ngOnInit(): void {
         this.paramsSub = this.activatedRoute

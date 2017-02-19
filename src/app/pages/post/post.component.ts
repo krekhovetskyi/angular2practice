@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from "rxjs";
 
-import { IPost, PostsService } from './../../services/posts.service';
-import { IComment, CommentsService } from './../../services/comments.service';
+import { IPost, PostsService } from '../../services/posts.service';
+import { IComment, CommentsService } from '../../services/comments.service';
 
 @Component({
     selector: 'app-post',
@@ -10,33 +11,39 @@ import { IComment, CommentsService } from './../../services/comments.service';
     styleUrls: ['./post.component.scss']
 })
 export class PostPageComponent implements OnInit, OnDestroy {
-    postId: number;
     post: IPost;
     comments: IComment[];
     paramsSub: any;
 
     constructor(private activatedRoute: ActivatedRoute,
                 private _postService: PostsService,
-                private _commentsService: CommentsService) { }
+                private _commentsService: CommentsService) {
+    }
 
     ngOnInit(): void {
         this.paramsSub = this.activatedRoute
             .params
             .subscribe((params: Params) => {
-                this.postId = +params['id'];
-
-                this._postService
-                    .getPost(this.postId)
-                    .then((post: IPost) => this.post = post);
-
-                this._commentsService
-                    .getComments(this.postId)
-                    .then((comments: IComment[]) => this.comments = comments);
+                this.setPageData(params);
             });
     }
 
     ngOnDestroy(): void {
         this.paramsSub.unsubscribe();
+    }
+
+    setPageData(params: Params): void {
+        let postId = +params['id'];
+
+        Observable
+            .forkJoin(
+                this._postService.getPost(postId),
+                this._commentsService.getComments(postId)
+            )
+            .subscribe((response) => {
+                this.post = <IPost>response[0];
+                this.comments = <IComment[]>response[1];
+            });
     }
 
 }

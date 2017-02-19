@@ -10,7 +10,8 @@ import { IUser, UsersService } from '../../services/users.service';
 export class UsersPageComponent implements OnInit {
     users: IUser[];
 
-    constructor(private _usersService: UsersService) { }
+    constructor(private _usersService: UsersService) {
+    }
 
     ngOnInit() {
         this._usersService

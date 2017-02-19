@@ -19,9 +19,10 @@ interface IPostPaginationData {
 export class PostsService {
     private _url: string = 'https://jsonplaceholder.typicode.com/posts';
 
-    constructor(private _http: Http) { }
+    constructor(private _http: Http) {
+    }
 
-    private handleError(error: any): Promise<any> {
+    private static handleError(error: any): Promise<any> {
         return Promise.reject(error.message || error);
     }
 
@@ -30,7 +31,7 @@ export class PostsService {
             .get(`${this._url}/${id}`)
             .toPromise()
             .then(response => response.json())
-            .catch(this.handleError);
+            .catch(PostsService.handleError);
     }
 
     getPosts(page?: number) {
@@ -43,6 +44,6 @@ export class PostsService {
                     totalCount: +response.headers.get('x-total-count')
                 };
             })
-            .catch(this.handleError);
+            .catch(PostsService.handleError);
     }
 }
